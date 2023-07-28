@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <title>Weather app</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="SRC/proj_styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="layout">
+        <form id="search-form">
+          <input
+            class="entercity"
+            id="entercity"
+            type="text"
+            placeholder="Enter Your city"
+          />
+          <input
+            class="serachbutton"
+            id="searchbutton"
+            type="submit"
+            value="Search"
+          />
+        </form>
+
+        <div class="actualweather">
+          <div class="searchedcity">
+            It is <span id="day"></span> <span id="hour"></span>:<span
+              id="minutes"
+            ></span>
+            in <span id="city"></span>
+          </div>
+          <span class="weathericon">
+            <img class="icon_actual" src="SRC/pics/icons/sunny.svg" />
+          </span>
+          <span class="tempandhum">
+            Temperature <span class="degrees" id="degrees"></span
+            ><span><button class="celsius" id="cel">℃</button></span> |
+            <span><button class="fahrenheit" id="fah">℉</button></span>
+            <br />Humidity <span id="hum"></span>%
+          </span>
+        </div>
+        <div class="container text-center forecast">
+          <div class="row">
+            <div class="col day 1">
+              Mon
+              <br />
+              <img class="icon 1" src="SRC/pics/icons/partlycloudy.svg" />
+            </div>
+            <div class="col day 2">
+              Tues
+              <br />
+              <img class="icon i2" src="SRC/pics/icons/thunderstorm.svg" />
+            </div>
+            <div class="col day 3">
+              Wedn
+              <br />
+              <img class="icon i3" src="SRC/pics/icons/rainy.svg" />
+            </div>
+            <div class="col day 4">
+              Thu
+              <br />
+              <img class="icon i4" src="SRC/pics/icons/sunny.svg" />
+            </div>
+            <div class="col day 5">
+              Fri
+              <br />
+              <img class="icon i5" src="SRC/pics/icons/sunny.svg" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="SRC/index.js"></script>
+  </body>
+</html>

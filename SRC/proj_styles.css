@@ -1,0 +1,100 @@
+.container {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.layout {
+  width: 650px;
+  height: 750px;
+  margin: 50px auto;
+  box-shadow: 2.5px 2.5px 3px #b69f93;
+  border-radius: 1.5%;
+  background-image: url("SRC/pics/pinky.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.entercity {
+  width: 45%;
+  margin-top: 55px;
+  margin-left: 150px;
+  opacity: 70%;
+  border-radius: 4.5px;
+  background-color: #dac9b6;
+  border: 0;
+}
+.serachbutton {
+  margin-left: 5px;
+  background-color: #dac9b6;
+  opacity: 90%;
+  border-radius: 4.5px;
+  box-shadow: 1.5px 1.5px 3px #897b6c;
+  color: #504a44;
+  border: 0;
+}
+.date {
+  font-size: smaller;
+}
+.actualweather {
+  position: relative;
+  margin: 0 auto;
+  width: 550px;
+  height: 200px;
+  border-radius: 4.5px;
+}
+
+.searchedcity {
+  text-align: center;
+  margin-top: 75px;
+  font-size: larger;
+  font-weight: 800;
+  opacity: 80%;
+}
+
+.icon_actual {
+  width: 150px;
+  margin-top: 25px;
+  margin-left: 55px;
+  opacity: 70%;
+}
+.tempandhum {
+  display: inline-block;
+  margin-left: 40px;
+  opacity: 90%;
+}
+.celsius {
+  display: inline;
+  margin: none;
+  padding: none;
+  background: none;
+  border: none;
+}
+.celsius:hover {
+  color: rgb(150, 56, 84);
+}
+.fahrenheit {
+  display: inline;
+  margin: none;
+  padding: none;
+  background: none;
+  border: none;
+}
+.fahrenheit:hover {
+  color: rgb(150, 56, 84);
+}
+
+.forecast {
+  display: inline;
+}
+.row {
+  margin: 80px auto;
+  max-width: 450px;
+}
+.day {
+  color: rgb(101, 32, 46);
+}
+.icon {
+  margin-top: 30px;
+  width: 45px;
+  opacity: 68%;
+}
