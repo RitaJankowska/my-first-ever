@@ -1,5 +1,3 @@
-//challenge 1
-
 function citySearch(submit) {
   submit.preventDefault();
   let cityName = document.querySelector("#entercity");
@@ -8,26 +6,36 @@ function citySearch(submit) {
   function getData(response) {
     console.log(response);
 
+    celsiusDegrees = response.data.main.temp
     let showCelsius = document.querySelector("#degrees");
-    showCelsius.innerHTML = Math.round(response.data.main.temp);
+    showCelsius.innerHTML = Math.round(celsiusDegrees);
     let showHumidity = document.querySelector("#hum");
     showHumidity.innerHTML = Math.round(response.data.main.humidity);
-
-    //function fahDegrees(event) {
-    //event.preventDefault();
-    //let showFahrenheit = document.querySelector("#degrees");
-    //showFahrenheit.innerHTML = 66;
-    //}
-
-    //let cDegrees = document.querySelector("#cel");
-    //cDegrees.addEventListener("click", celDegrees);
-    //let fDegrees = document.querySelector("#fah");
-    //fDegrees.addEventListener("click", fahDegrees);
   }
+
   let apiKey = "0ebc654fccbc00189d5408f3d6f15b08";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName.value}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(getData);
 }
+function fahDegrees(event) {
+  event.preventDefault();
+  let showFahrenheit = document.querySelector("#degrees");
+  showFahrenheit.innerHTML = Math.round(celsiusDegrees * 9 / 5 + 32);
+}
+let fDegrees = document.querySelector("#fah");
+fDegrees.addEventListener("click", fahDegrees);
+
+function celDegrees(event){
+event.preventDefault();
+let makeCelsiusAgain = document.querySelector("#degrees");
+makeCelsiusAgain.innerHTML = Math.round(celsiusDegrees);
+}
+let cDegrees = document.querySelector("#cel");
+cDegrees.addEventListener("click", celDegrees);
+
+let celsiusDegrees = null;
+
+
 let search = document.querySelector("#search-form");
 search.addEventListener("submit", citySearch);
 
@@ -40,7 +48,7 @@ let days = [
   "Wednesday",
   "Thursday",
   "Friday",
-  "Saturday"
+  "Saturday",
 ];
 let actualDay = document.querySelector("#day");
 actualDay.innerHTML = days[now.getDay()];
@@ -56,7 +64,3 @@ if (theMinutes < 10) {
 }
 let actualMinutes = document.querySelector("#minutes");
 actualMinutes.innerHTML = `${theMinutes}`;
-
-//challenge 2
-
-//bonus
