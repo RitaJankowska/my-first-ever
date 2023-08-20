@@ -11,6 +11,8 @@ function citySearch(submit) {
     showCelsius.innerHTML = Math.round(celsiusDegrees);
     let showHumidity = document.querySelector("#hum");
     showHumidity.innerHTML = Math.round(response.data.main.humidity);
+    let windSpeed = document.querySelector("#windspeed");
+    windSpeed.innerHTML = Math.round(response.data.wind.speed);
   }
 
   let apiKey = "0ebc654fccbc00189d5408f3d6f15b08";
