@@ -16,9 +16,38 @@ function citySearch(submit) {
     let weatherDescription = document.querySelector("#weather-description");
     weatherDescription.innerHTML = response.data.weather[0].description;
     bigIcon = response.data.weather[0].icon;
+    let iconSign = document.querySelector("#weather-icon");
+
+    if (bigIcon === "01d" || bigIcon === "01n") {
+      iconSign.setAttribute("src", "SRC/pics/icons/sunny.svg");
+    }
+    if (bigIcon === "02d" || bigIcon === "02n") {
+      iconSign.setAttribute("src", "SRC/pics/icons/partlycloudy.svg");
+    }
+    if (
+      bigIcon === "03d" ||
+      bigIcon === "04d" ||
+      bigIcon === "03n" ||
+      bigIcon === "04n"
+    ) {
+      iconSign.setAttribute("src", "SRC/pics/icons/cloudy.svg");
+    }
+    if (bigIcon === "09d" || bigIcon === "09n") {
+      iconSign.setAttribute("src", "SRC/pics/icons/rain_heavy.svg");
+    }
+    if (bigIcon === "10d" || bigIcon === "10n") {
+      iconSign.setAttribute("src", "SRC/pics/icons/rainy.svg");
+    }
+    if (bigIcon === "11d" || bigIcon === "11n") {
+      iconSign.setAttribute("src", "SRC/pics/icons/thunderstorm.svg");
+    }
+    if (bigIcon === "50d" || bigIcon === "50n") {
+      iconSign.setAttribute("src", "SRC/pics/icons/mist.svg");
+    }
+    if (bigIcon === "13d" || bigIcon === "13n") {
+      iconSign.setAttribute("src", "SRC/pics/icons/snow.svg");
+    }
   }
-  
-  
 
   let apiKey = "0ebc654fccbc00189d5408f3d6f15b08";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName.value}&appid=${apiKey}&units=metric`;
@@ -70,10 +99,3 @@ if (theMinutes < 10) {
 }
 let actualMinutes = document.querySelector("#minutes");
 actualMinutes.innerHTML = `${theMinutes}`;
-
-let iconSign = document.querySelector("#weather-icon");
-let bigIcon = null;
-  if (bigIcon === "01d") {
-      iconSign.src = "SRC/pics/icons/cloudy.svg";
-    
-  }
