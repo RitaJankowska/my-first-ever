@@ -6,13 +6,15 @@ function citySearch(submit) {
   function getData(response) {
     console.log(response);
 
-    celsiusDegrees = response.data.main.temp
+    celsiusDegrees = response.data.main.temp;
     let showCelsius = document.querySelector("#degrees");
     showCelsius.innerHTML = Math.round(celsiusDegrees);
     let showHumidity = document.querySelector("#hum");
     showHumidity.innerHTML = Math.round(response.data.main.humidity);
     let windSpeed = document.querySelector("#windspeed");
     windSpeed.innerHTML = Math.round(response.data.wind.speed);
+    let weatherDescription = document.querySelector("#weather-description");
+    weatherDescription.innerHTML = response.data.weather[0].description;
   }
 
   let apiKey = "0ebc654fccbc00189d5408f3d6f15b08";
@@ -22,21 +24,20 @@ function citySearch(submit) {
 function fahDegrees(event) {
   event.preventDefault();
   let showFahrenheit = document.querySelector("#degrees");
-  showFahrenheit.innerHTML = Math.round(celsiusDegrees * 9 / 5 + 32);
+  showFahrenheit.innerHTML = Math.round((celsiusDegrees * 9) / 5 + 32);
 }
 let fDegrees = document.querySelector("#fah");
 fDegrees.addEventListener("click", fahDegrees);
 
-function celDegrees(event){
-event.preventDefault();
-let makeCelsiusAgain = document.querySelector("#degrees");
-makeCelsiusAgain.innerHTML = Math.round(celsiusDegrees);
+function celDegrees(event) {
+  event.preventDefault();
+  let makeCelsiusAgain = document.querySelector("#degrees");
+  makeCelsiusAgain.innerHTML = Math.round(celsiusDegrees);
 }
 let cDegrees = document.querySelector("#cel");
 cDegrees.addEventListener("click", celDegrees);
 
 let celsiusDegrees = null;
-
 
 let search = document.querySelector("#search-form");
 search.addEventListener("submit", citySearch);
