@@ -15,7 +15,10 @@ function citySearch(submit) {
     windSpeed.innerHTML = Math.round(response.data.wind.speed);
     let weatherDescription = document.querySelector("#weather-description");
     weatherDescription.innerHTML = response.data.weather[0].description;
+    bigIcon = response.data.weather[0].icon;
   }
+  
+  
 
   let apiKey = "0ebc654fccbc00189d5408f3d6f15b08";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName.value}&appid=${apiKey}&units=metric`;
@@ -67,3 +70,10 @@ if (theMinutes < 10) {
 }
 let actualMinutes = document.querySelector("#minutes");
 actualMinutes.innerHTML = `${theMinutes}`;
+
+let iconSign = document.querySelector("#weather-icon");
+let bigIcon = null;
+  if (bigIcon === "01d") {
+      iconSign.src = "SRC/pics/icons/cloudy.svg";
+    
+  }
