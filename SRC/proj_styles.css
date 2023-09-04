@@ -90,10 +90,15 @@
 }
 .row {
   margin-top: 85px;
-  margin-left: 145px;
-  max-width: 450px;
+  margin-left: 120px;
+  max-width: 650px;
 }
-
+.fore-temp-min {
+  opacity: 65%;
+}
+.min-temp {
+  opacity: 65%;
+}
 .day {
   color: rgb(101, 32, 46);
 }
