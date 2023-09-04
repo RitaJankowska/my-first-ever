@@ -3,9 +3,17 @@ function citySearch(submit) {
   let cityName = document.querySelector("#entercity");
   let yourCity = document.querySelector("#city");
   yourCity.innerHTML = cityName.value;
+  function getForecast(coordinates) {
+    console.log(coordinates);
+    let apiKey = "005d6aa9a4f3cb75ao04a8bb4ft840c8";
+    let apiURL = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.lon}&lat=${coordinates.lat}&key=${apiKey}`;
+    console.log(apiURL)
+    axios.get(apiURL).then(displayForecast);
+  }
   function getData(response) {
+    
     console.log(response);
-
+    getForecast(response.data.coord);
     celsiusDegrees = response.data.main.temp;
     let showCelsius = document.querySelector("#degrees");
     showCelsius.innerHTML = Math.round(celsiusDegrees);
@@ -48,7 +56,7 @@ function citySearch(submit) {
       iconSign.setAttribute("src", "SRC/pics/icons/snow.svg");
     }
   }
- 
+
   let apiKey = "0ebc654fccbc00189d5408f3d6f15b08";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName.value}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(getData);
@@ -100,22 +108,25 @@ if (theMinutes < 10) {
 let actualMinutes = document.querySelector("#minutes");
 actualMinutes.innerHTML = `${theMinutes}`;
 
- function displayForecast() {
-    let forecastElement = document.querySelector("#forecast");
+function displayForecast() {
+  
+  let forecastElement = document.querySelector("#forecast");
 
-     
-    
-    let forecastHTML = ` <div class="row">`;
-    let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
-    days.forEach(function (day)
-    {
- forecastHTML = forecastHTML + 
-            `<div class="col-2">
+  let forecastHTML = ` <div class="row">`;
+  let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-2">
               ${day}
               <br />
               <img class="icon 1" src="SRC/pics/icons/partlycloudy.svg" />
-            </div>`;})
-            forecastHTML = forecastHTML + `</div>`;
-            forecastElement.innerHTML = forecastHTML;
-  }
+              <br />
+              <br />
+              <span id="fore-temp"></span>℃
+            </div>`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
 displayForecast();
